@@ -1,0 +1,1248 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Trường's Roadbook</title>
+<meta name="description" content="Tran Van Truong (Trần Văn Trường), Unity game developer in Ho Chi Minh City. A CV you can ride, one climb per career stage.">
+<link rel="canonical" href="https://tranvantruong.pages.dev/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%23fff' stroke='%23C21F29' stroke-width='2'/%3E%3Cg fill='%23C21F29'%3E%3Ccircle cx='11' cy='10' r='2.4'/%3E%3Ccircle cx='21' cy='10' r='2.4'/%3E%3Ccircle cx='16' cy='16' r='2.4'/%3E%3Ccircle cx='11' cy='22' r='2.4'/%3E%3Ccircle cx='21' cy='22' r='2.4'/%3E%3C/g%3E%3C/svg%3E">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://tranvantruong.pages.dev/">
+<meta property="og:title" content="Tran Van Truong · Unity Game Client Developer">
+<meta property="og:description" content="5+ years of Unity game-client work and three launched titles at Enish, including Yowamushi Pedal Resonance Pedaism (2026). A CV you can ride.">
+<meta property="og:image" content="https://tranvantruong.pages.dev/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Trần Văn Trường, Unity game client developer, with three launched titles">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Tran Van Truong",
+  "alternateName": "Trần Văn Trường",
+  "url": "https://tranvantruong.pages.dev/",
+  "jobTitle": "Unity Game Developer",
+  "worksFor": { "@type": "Organization", "name": "Enish Vietnam" },
+  "address": { "@type": "PostalAddress", "addressLocality": "Ho Chi Minh City", "addressCountry": "VN" },
+  "alumniOf": { "@type": "CollegeOrUniversity", "name": "Posts and Telecommunications Institute of Technology" },
+  "knowsAbout": ["Unity", "C#", "UGUI", "UniRx", "gRPC", "Protobuf", "Spine"],
+  "sameAs": ["https://github.com/tranvantruongdev"]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=Be+Vietnam+Pro:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root {
+  /* Layout: a race roadbook. Name and lead on top, the rideable stage profile full width,
+     then the stage table, kit and work, ending on a checkered finish band. */
+  --bg: #EDF0F3;
+  --surface: #FFFFFF;
+  --ink: #14171B;
+  --muted: #59636F;
+  --line: #D1D7DE;
+  --jersey: #F4C20D;
+  --on-jersey: #14171B;
+  --kom: #C21F29;
+  --ph-bg: #FFE58F;
+  --ph-fg: #5C4600;
+
+  /* ride scene */
+  --sky-top: #B9D5E8;
+  --sky-bottom: #E9F0F4;
+  --sun: #FFF3B8;
+  --star: rgba(255, 255, 255, 0);
+  --ridge-far: #AFC3D2;
+  --ridge-near: #8EA6B7;
+  --woods: #5D7A6C;
+  --road: #2A2F35;
+  --road-edge: #F6F8FA;
+  --grade-0: #C3CEC8;
+  --grade-1: #E6CF6E;
+  --grade-2: #E39A55;
+  --grade-3: #D25A52;
+  --banner: #FFFFFF;
+  --post: #3A4048;
+  --bike: #C21F29;
+  --tyre: #16191D;
+  --shorts: #23272D;
+  --skin: #E3AE88;
+
+  --f-display: "Archivo", "Arial Narrow", "Roboto Condensed", system-ui, sans-serif;
+  --f-body: "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0F1215; --surface: #171B20; --ink: #E8ECF0; --muted: #96A0AC; --line: #283039;
+    --jersey: #FFCF2E; --on-jersey: #14171B; --kom: #FF5E66; --ph-bg: #5A4A0F; --ph-fg: #FFE58F;
+    --sky-top: #070C16; --sky-bottom: #18263A; --sun: #DCE4EE; --star: rgba(255, 255, 255, .85);
+    --ridge-far: #1A2738; --ridge-near: #132030; --woods: #0E1A18;
+    --road: #08090B; --road-edge: #6A7682;
+    --grade-0: #233330; --grade-1: #5E5524; --grade-2: #6E4324; --grade-3: #722B2B;
+    --banner: #E8ECF0; --post: #8A949F; --bike: #FF5E66; --tyre: #D3DAE1; --shorts: #AAB4BF; --skin: #E3AE88;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0F1215; --surface: #171B20; --ink: #E8ECF0; --muted: #96A0AC; --line: #283039;
+  --jersey: #FFCF2E; --on-jersey: #14171B; --kom: #FF5E66; --ph-bg: #5A4A0F; --ph-fg: #FFE58F;
+  --sky-top: #070C16; --sky-bottom: #18263A; --sun: #DCE4EE; --star: rgba(255, 255, 255, .85);
+  --ridge-far: #1A2738; --ridge-near: #132030; --woods: #0E1A18;
+  --road: #08090B; --road-edge: #6A7682;
+  --grade-0: #233330; --grade-1: #5E5524; --grade-2: #6E4324; --grade-3: #722B2B;
+  --banner: #E8ECF0; --post: #8A949F; --bike: #FF5E66; --tyre: #D3DAE1; --shorts: #AAB4BF; --skin: #E3AE88;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 400 16px/1.6 var(--f-body);
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+.wrap { max-width: 1160px; margin: 0 auto; padding-inline: clamp(16px, 4vw, 40px); }
+.eyebrow {
+  margin: 0;
+  font: 500 12px/1.4 var(--f-mono);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* header */
+.top {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding-block: 18px;
+  border-bottom: 1px solid var(--line);
+}
+.mark { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.mark-dot {
+  width: 28px; height: 28px; border-radius: 50%;
+  border: 1px solid var(--line);
+  background: radial-gradient(circle, var(--kom) 0 1.6px, transparent 2px) 0 0 / 6px 6px, var(--banner);
+}
+.mark-text { display: grid; line-height: 1; gap: 3px; }
+.mark-name { font-family: var(--f-display); font-stretch: 62%; font-weight: 800; font-size: 22px; }
+.mark-sub { font: 500 10.5px var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.nav { display: flex; flex-wrap: wrap; gap: 4px 20px; }
+.nav a {
+  font: 500 12px var(--f-mono); letter-spacing: .1em; text-transform: uppercase;
+  text-decoration: none; color: var(--muted); padding-block: 4px;
+}
+.nav a:hover { color: var(--ink); }
+.nav a:focus-visible, .mark:focus-visible { outline: 2px solid var(--kom); outline-offset: 3px; }
+@media (max-width: 560px) { .nav { display: none; } }
+
+.draft-note {
+  margin: 16px 0 0;
+  padding: 10px 14px;
+  border: 1px dashed var(--muted);
+  border-radius: 4px;
+  font: 400 13px/1.5 var(--f-mono);
+  color: var(--muted);
+}
+.draft-note b { color: var(--ink); font-weight: 600; }
+mark.ph { padding: 0 3px; border-radius: 2px; background: var(--ph-bg); color: var(--ph-fg); }
+
+/* launched titles */
+.shipped { display: grid; gap: 10px; margin-bottom: 28px; }
+.shipped-grid {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 2px solid var(--kom); border-radius: 0 0 6px 6px;
+  background: var(--surface);
+}
+.shipped-item { min-width: 0; padding: 14px 18px 16px; }
+.shipped-item + .shipped-item { border-left: 1px solid var(--line); }
+.shipped-item h3 {
+  margin: 0;
+  font-family: var(--f-display); font-stretch: 75%; font-weight: 700; font-size: 22px; line-height: 1.12;
+  text-wrap: balance;
+}
+.shipped-item p { margin: 6px 0 0; font: 500 12px/1.4 var(--f-mono); letter-spacing: .03em; color: var(--muted); }
+.shipped-item .shipped-scale { margin-top: 2px; color: var(--ink); font-variant-numeric: tabular-nums; }
+.shipped-scale a { text-decoration-color: var(--line); text-underline-offset: 3px; }
+.shipped-scale a:hover { text-decoration-color: var(--kom); }
+.shipped-scale a:focus-visible { outline: 2px solid var(--kom); outline-offset: 2px; }
+@media (max-width: 720px) {
+  .shipped-grid { grid-template-columns: minmax(0, 1fr); }
+  .shipped-item + .shipped-item { border-left: 0; border-top: 1px solid var(--line); }
+}
+
+/* hero */
+.hero { display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; padding-block: 40px 28px; }
+@media (min-width: 900px) { .hero { grid-template-columns: minmax(0, 1fr) 300px; align-items: end; } }
+.hero h1 {
+  margin: 12px 0 0;
+  font-family: var(--f-display); font-stretch: 62%; font-weight: 800;
+  font-size: clamp(56px, 10vw, 124px);
+  line-height: .95;
+  letter-spacing: -.005em;
+  text-wrap: balance;
+}
+.lead { margin: 18px 0 0; max-width: 54ch; font-size: 18px; color: var(--muted); }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 18px;
+  border: 1.5px solid var(--ink); border-radius: 3px;
+  background: transparent; color: var(--ink);
+  font: 600 13px/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase;
+  text-decoration: none; cursor: pointer;
+  transition: transform .15s ease;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn:focus-visible { outline: 3px solid var(--kom); outline-offset: 2px; }
+.btn-primary { background: var(--jersey); border-color: var(--jersey); color: var(--on-jersey); }
+
+.facts { margin: 0; border-top: 2px solid var(--ink); }
+.facts div {
+  display: grid; grid-template-columns: 104px minmax(0, 1fr); gap: 12px;
+  padding-block: 9px; border-bottom: 1px solid var(--line);
+}
+.facts dt { font: 500 11px/1.9 var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.facts dd { margin: 0; font-weight: 500; }
+
+/* ride */
+.ride { border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: var(--surface); }
+.ride-view {
+  position: relative;
+  height: clamp(280px, 38vw, 440px);
+  outline: none; cursor: pointer;
+  touch-action: manipulation;
+}
+.ride-view:focus-visible { box-shadow: inset 0 0 0 3px var(--jersey); }
+.ride-view canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.hud {
+  position: absolute; top: 10px; left: 10px; right: 10px;
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+  pointer-events: none;
+}
+.hud span {
+  padding: 7px 9px; border-radius: 3px;
+  background: color-mix(in srgb, var(--surface) 86%, transparent);
+  color: var(--ink);
+  font: 500 12px/1 var(--f-mono); letter-spacing: .06em; text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+}
+.ride-hint {
+  position: absolute; left: 50%; bottom: 34px; transform: translateX(-50%);
+  margin: 0; padding: 7px 11px; border-radius: 3px;
+  background: var(--ink); color: var(--bg);
+  font: 500 12px var(--f-mono); white-space: nowrap;
+  pointer-events: none; transition: opacity .3s ease;
+}
+.ride-hint.is-gone { opacity: 0; }
+.ride-bar {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 8px;
+  padding: 10px; border-top: 1px solid var(--line);
+}
+.ctl {
+  min-width: 44px; height: 40px; padding: 0 12px;
+  border: 1px solid var(--line); border-radius: 3px;
+  background: var(--bg); color: var(--ink);
+  font: 600 13px var(--f-mono); letter-spacing: .06em; text-transform: uppercase;
+  cursor: pointer; user-select: none; -webkit-user-select: none; touch-action: none;
+}
+.ctl.is-held, .ctl[aria-pressed="true"] { background: var(--jersey); border-color: var(--jersey); color: var(--on-jersey); }
+.ctl:focus-visible { outline: 3px solid var(--kom); outline-offset: 1px; }
+#auto-btn { margin-left: auto; }
+.keys { flex: 1; min-width: 0; margin: 0; text-align: center; font: 400 12px var(--f-mono); color: var(--muted); }
+.keys kbd { font: inherit; padding: 1px 5px; border: 1px solid var(--line); border-radius: 3px; color: var(--ink); }
+@media (max-width: 640px) { .keys { display: none; } }
+
+/* route profile */
+.profile { margin-top: 18px; }
+.profile-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px 16px; }
+.legend { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 0; padding: 0; list-style: none; font: 400 12px var(--f-mono); color: var(--muted); }
+.legend li { display: flex; align-items: center; gap: 6px; }
+.legend i { display: inline-block; width: 14px; height: 8px; border-radius: 1px; }
+#profile-canvas { display: block; width: 100%; height: 88px; margin-top: 8px; cursor: pointer; }
+
+/* stage panel */
+.stage-panel {
+  margin-top: 14px;
+  display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 6px 24px;
+  padding: 18px 20px;
+  border: 1px solid var(--line); border-radius: 6px; background: var(--surface);
+}
+.sp-num {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 10px;
+  min-width: 76px;
+  font-family: var(--f-display); font-stretch: 62%; font-weight: 800; font-size: 56px; line-height: .9;
+}
+.sp-meta { margin: 0; font: 500 12px var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.sp-body { min-width: 0; }
+.sp-body h3 { margin: 6px 0 0; font-family: var(--f-display); font-stretch: 75%; font-weight: 700; font-size: 28px; line-height: 1.1; }
+.sp-role { margin: 2px 0 0; font-weight: 500; }
+.sp-body p.sp-note { margin: 8px 0 0; max-width: 68ch; }
+.sp-body a { font-weight: 600; text-underline-offset: 3px; text-decoration-color: var(--kom); }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0 0; padding: 0; list-style: none; }
+.tags li { padding: 3px 8px; border: 1px solid var(--line); border-radius: 2px; font: 500 12px var(--f-mono); color: var(--muted); }
+@media (max-width: 520px) {
+  .stage-panel { grid-template-columns: minmax(0, 1fr); }
+  .sp-num { flex-direction: row; align-items: center; font-size: 44px; }
+}
+
+.cat {
+  display: inline-block; min-width: 58px; padding: 5px 7px;
+  border: 1px solid var(--kom); border-radius: 2px;
+  color: var(--kom); text-align: center; white-space: nowrap;
+  font: 600 11px/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase;
+}
+.cat-hc { background: var(--jersey); border-color: var(--jersey); color: var(--on-jersey); }
+.cat-flat { border-color: var(--line); color: var(--muted); }
+.points { margin: 10px 0 0; padding-left: 18px; max-width: 70ch; font-size: 15px; }
+.points li { margin-top: 4px; padding-left: 2px; }
+.points li::marker { color: var(--kom); }
+.kit-note { margin: 4px 0 0; font-size: 14px; color: var(--muted); }
+.chip-draft {
+  display: inline-block; vertical-align: middle; margin-left: 8px; padding: 4px 6px;
+  border: 1px dashed var(--muted); border-radius: 2px;
+  color: var(--muted);
+  font: 500 10px/1 var(--f-mono); letter-spacing: .1em; text-transform: uppercase;
+}
+
+/* sections */
+.section { padding-block: 64px 8px; }
+.section-head { display: grid; gap: 6px; margin-bottom: 22px; }
+.section h2 {
+  margin: 0;
+  font-family: var(--f-display); font-stretch: 62%; font-weight: 800;
+  font-size: clamp(40px, 6vw, 64px); line-height: .95;
+  text-transform: uppercase; letter-spacing: .005em;
+}
+.section-note { margin: 4px 0 0; max-width: 62ch; color: var(--muted); }
+
+/* roadbook */
+.stages { margin: 0; padding: 0; list-style: none; border-top: 2px solid var(--ink); }
+.stage-row {
+  display: grid;
+  grid-template-columns: 52px 128px minmax(0, 1fr) auto auto;
+  grid-template-areas: "num years main cat go";
+  align-items: baseline; gap: 6px 18px;
+  padding: 16px 10px;
+  border-bottom: 1px solid var(--line);
+  transition: background-color .2s ease;
+}
+.stage-row.is-draft { border-bottom-style: dashed; }
+.stage-row.is-current { background: color-mix(in srgb, var(--jersey) 16%, transparent); }
+.sr-num { grid-area: num; font-family: var(--f-display); font-stretch: 62%; font-weight: 800; font-size: 34px; line-height: 1; }
+.sr-years { grid-area: years; font: 500 13px var(--f-mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+.sr-main { grid-area: main; display: grid; gap: 2px; min-width: 0; }
+.sr-main strong { font-size: 18px; font-weight: 600; }
+.sr-main span { font-size: 15px; color: var(--muted); }
+.stage-row .cat { grid-area: cat; }
+.sr-go {
+  grid-area: go;
+  padding: 8px 4px; border: 0; background: none; color: var(--ink); cursor: pointer;
+  font: 500 12px var(--f-mono); letter-spacing: .06em; text-transform: uppercase;
+  text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--line);
+}
+.sr-go:hover { text-decoration-color: var(--kom); }
+.sr-go:focus-visible { outline: 2px solid var(--kom); outline-offset: 2px; }
+.is-draft .sr-main strong, .work-item.is-draft h3 { color: var(--muted); }
+@media (max-width: 720px) {
+  .stage-row {
+    grid-template-columns: 40px minmax(0, 1fr) auto;
+    grid-template-areas: "num years cat" "num main go";
+    padding-inline: 4px;
+  }
+  .sr-num { align-self: start; }
+}
+
+/* kit + work */
+.split { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0 56px; }
+@media (min-width: 900px) { .split { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); } }
+.kit { margin: 0; border-top: 2px solid var(--ink); }
+.kit-row { display: grid; grid-template-columns: 100px minmax(0, 1fr); gap: 12px; padding-block: 14px; border-bottom: 1px solid var(--line); }
+.kit dt { font: 500 11px/2 var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.kit dd { margin: 0; }
+.inline { display: flex; flex-wrap: wrap; gap: 4px 0; margin: 0; padding: 0; list-style: none; }
+.inline li { font-weight: 500; }
+.inline li:not(:last-child)::after { content: "·"; margin-inline: 9px; color: var(--muted); }
+
+.work { margin: 0; padding: 0; list-style: none; border-top: 2px solid var(--ink); }
+.work-item { padding-block: 18px; border-bottom: 1px solid var(--line); }
+.work-item.is-draft { border-bottom-style: dashed; }
+.work-meta { margin: 0; font: 500 12px var(--f-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.work-item h3 { margin: 6px 0 0; font-family: var(--f-display); font-stretch: 75%; font-weight: 700; font-size: 30px; line-height: 1.1; }
+.work-item p { margin: 8px 0 0; max-width: 62ch; }
+.work-item .work-role { font-weight: 500; }
+.work-role span {
+  margin-right: 10px; padding: 2px 6px; border-radius: 2px;
+  background: var(--jersey); color: var(--on-jersey);
+  font: 600 10.5px/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase;
+  vertical-align: 2px;
+}
+.work-link a { font: 500 13px var(--f-mono); letter-spacing: .04em; text-underline-offset: 3px; text-decoration-color: var(--kom); }
+
+/* finish */
+.finish { margin-top: 80px; background: var(--ink); color: var(--bg); }
+.checker {
+  height: 16px;
+  background: conic-gradient(var(--ink) 25%, var(--bg) 0 50%, var(--ink) 0 75%, var(--bg) 0) 0 0 / 16px 16px;
+}
+.finish-inner { display: grid; gap: 32px; padding-block: 56px 48px; }
+@media (min-width: 900px) { .finish-inner { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); align-items: end; } }
+.finish .eyebrow, .finish-text, .foot { color: color-mix(in srgb, var(--bg) 70%, var(--ink)); }
+.finish h2 {
+  margin: 10px 0 0;
+  font-family: var(--f-display); font-stretch: 62%; font-weight: 800;
+  font-size: clamp(48px, 8vw, 96px); line-height: .92;
+  text-transform: uppercase; text-wrap: balance;
+}
+.finish-text { margin: 16px 0 0; max-width: 46ch; }
+.contact { margin: 0; border-top: 2px solid var(--jersey); }
+.contact-row {
+  display: grid; grid-template-columns: 84px minmax(0, 1fr) auto; align-items: center; gap: 12px;
+  min-height: 52px; padding-block: 8px;
+  border-bottom: 1px solid color-mix(in srgb, var(--bg) 22%, var(--ink));
+}
+.contact dt { font: 500 11px var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: color-mix(in srgb, var(--bg) 70%, var(--ink)); }
+.contact dd { margin: 0; min-width: 0; }
+.contact .val { font: 500 15px var(--f-mono); overflow-wrap: anywhere; }
+.contact a { color: var(--bg); text-underline-offset: 3px; }
+.contact a:focus-visible, .copy:focus-visible { outline: 2px solid var(--jersey); outline-offset: 2px; }
+.finish .chip-draft { color: color-mix(in srgb, var(--bg) 70%, var(--ink)); border-color: currentColor; }
+.copy {
+  height: 32px; padding: 0 12px;
+  border: 1px solid color-mix(in srgb, var(--bg) 40%, var(--ink)); border-radius: 3px;
+  background: transparent; color: var(--bg); cursor: pointer;
+  font: 600 11px var(--f-mono); letter-spacing: .08em; text-transform: uppercase;
+}
+.foot {
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+  padding-block: 20px 28px;
+  border-top: 1px solid color-mix(in srgb, var(--bg) 22%, var(--ink));
+  font: 400 12px var(--f-mono);
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="mark" href="#top">
+      <span class="mark-dot" aria-hidden="true"></span>
+      <span class="mark-text"><span class="mark-name" id="mark-name"></span><span class="mark-sub">Roadbook · <span id="mark-year"></span></span></span>
+    </a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#roadbook">Roadbook</a><a href="#kit">Kit</a><a href="#work">Work</a><a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <p class="draft-note" id="draft-note" hidden><b>Template preview.</b> Anything marked Draft is a placeholder. Replace it in the <b>CV</b> object at the top of the script.</p>
+  <noscript><p class="draft-note">This CV draws its route with JavaScript. Turn it on to ride.</p></noscript>
+
+  <section class="hero" id="top">
+    <div>
+      <p class="eyebrow" id="hero-eyebrow"></p>
+      <h1 id="hero-name"></h1>
+      <p class="lead" id="hero-lead"></p>
+      <div class="actions">
+        <button class="btn btn-primary" id="hero-auto" type="button">Auto-ride the route ▸</button>
+        <a class="btn" href="#roadbook">Read the roadbook</a>
+      </div>
+    </div>
+    <dl class="facts" id="facts"></dl>
+  </section>
+
+  <section class="shipped" aria-labelledby="shipped-h">
+    <p class="eyebrow" id="shipped-h">Launched titles at Enish · public pre-registration figures</p>
+    <div class="shipped-grid" id="shipped"></div>
+  </section>
+
+  <section aria-label="Rideable career route">
+    <div class="ride">
+      <div class="ride-view" id="ride-view" tabindex="0" role="application" aria-label="Career route. Left and right arrow keys ride, space hops." aria-describedby="stage-panel">
+        <canvas id="ride-canvas" aria-hidden="true"></canvas>
+        <div class="hud" aria-hidden="true"><span id="hud-stage">Start line</span><span id="hud-stats">0.0 km · 150 m · 0%</span></div>
+        <p class="ride-hint" id="ride-hint" aria-hidden="true">Hold ▶ or press → to ride</p>
+      </div>
+      <div class="ride-bar">
+        <button class="ctl" id="ctl-left" type="button" aria-label="Ride back">◀</button>
+        <button class="ctl" id="ctl-right" type="button" aria-label="Ride forward">▶</button>
+        <button class="ctl" id="ctl-hop" type="button">Hop</button>
+        <p class="keys"><kbd>←</kbd> <kbd>→</kbd> ride · <kbd>Space</kbd> hop · click a climb below to jump there</p>
+        <button class="ctl" id="auto-btn" type="button" aria-pressed="false">Auto-ride</button>
+      </div>
+    </div>
+
+    <div class="profile">
+      <div class="profile-head">
+        <p class="eyebrow">Route profile · <span id="route-len"></span></p>
+        <ul class="legend" aria-label="Gradient key">
+          <li><i style="background: var(--grade-0)"></i>under 3%</li>
+          <li><i style="background: var(--grade-1)"></i>3–6%</li>
+          <li><i style="background: var(--grade-2)"></i>6–9%</li>
+          <li><i style="background: var(--grade-3)"></i>9% and up</li>
+        </ul>
+      </div>
+      <canvas id="profile-canvas" role="img" aria-label="Elevation profile of the career route. Click a climb to ride there."></canvas>
+    </div>
+
+    <div class="stage-panel" id="stage-panel" aria-live="polite"></div>
+  </section>
+
+  <section class="section" id="roadbook">
+    <div class="section-head">
+      <p class="eyebrow">Career, stage by stage</p>
+      <h2>Roadbook</h2>
+      <p class="section-note">Newest first. Climb category follows time on the team: under 1½ years is Cat 4, 3½ years or more is HC. Education is the prologue, a short flat opener.</p>
+    </div>
+    <ol class="stages" id="stages"></ol>
+  </section>
+
+  <div class="split">
+    <section class="section" id="kit">
+      <div class="section-head">
+        <p class="eyebrow">What I ride with</p>
+        <h2>Kit</h2>
+      </div>
+      <dl class="kit" id="kit-list"></dl>
+    </section>
+    <section class="section" id="work">
+      <div class="section-head">
+        <p class="eyebrow">Titles I worked on</p>
+        <h2>Selected work</h2>
+      </div>
+      <ol class="work" id="work-list"></ol>
+    </section>
+  </div>
+</div>
+
+<footer class="finish" id="contact">
+  <div class="checker" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="finish-inner">
+      <div>
+        <p class="eyebrow">Finish line</p>
+        <h2 id="finish-title"></h2>
+        <p class="finish-text" id="finish-text"></p>
+      </div>
+      <dl class="contact" id="contact-list"></dl>
+    </div>
+    <div class="foot"><span id="foot-name"></span><span>One HTML file · ride with ← →</span></div>
+  </div>
+</footer>
+
+<script>
+(() => {
+"use strict";
+
+/* ==========================================================================
+   CV — edit everything here. Entries with draft: true show a Draft chip.
+   Stage climbs are sized from start/end years (end: null = still there).
+   ========================================================================== */
+const CV = {
+  name: "Trần Văn Trường",
+  short: "Trường",
+  // Placeholders: put a label in double curly braces anywhere; it shows highlighted and the Draft note counts it.
+  // Same content as pdf/build_cv_v4.py — change both together.
+  mentionAiSystem: true,   // the agent system built at work; set false if Enish says no
+  checks: [                // things to confirm before publishing; delete each once done
+    "Confirm Enish is fine with mentioning the AI agent system.",
+    "Curate GitHub pins (currently university homework) or remove the GitHub link.",
+  ],
+  eyebrow: "Unity game client developer · C# · 5+ years",
+  summary: "I'm a Unity client developer with 5+ years and three launched titles at Japanese mobile-game publisher Enish, including the July 2026 launch of Yowamushi Pedal Resonance Pedaism, a licensed anime title with 250K+ pre-registrations. I took ownership of Battle Content mid-project and built the gacha result presentation",
+  summaryAi: ", and I build AI-agent tooling for bug investigation",
+  rideHint: "Each climb below is one stage of that career. Ride it with the arrow keys, or press Auto-ride.",
+  facts: [
+    { k: "Team", v: "Enish Vietnam" },
+    { k: "Based in", v: "Ho Chi Minh City" },
+    { k: "Experience", v: "5+ years, game client" },
+    { k: "Recent output", v: "238 merged PRs, Jan–May 2026" },
+    { k: "Languages", v: "Vietnamese (native) · English ({{level}}) · Japanese ({{JLPT level, or remove}})" },
+  ],
+  // Game scale from public announcements, not personal results.
+  shipped: [
+    { title: "Yowamushi Pedal Resonance Pedaism", meta: "iOS/Android · launched Jul 2026", scale: "250K+ pre-registrations",
+      url: "https://www.enish.jp/news/2026/30166" },
+    { title: "De:Lithe Last Memories", meta: "iOS/Android/PC · global launch Aug 2024", scale: "700K+ pre-registrations",
+      url: "https://www.enish.jp/news/2024/27156" },
+    { title: "Laid-Back Camp All-in-one!!", meta: "iOS/Android/PC · launched Jun 2023", scale: "1M+ pre-registrations",
+      url: "https://news.denfaminicogamer.jp/news/230615t" },
+  ],
+  // Oldest first. Dates are "YYYY" or "YYYY-MM"; end: null means still there.
+  // kind: "prologue" is a short flat opener with no climb category (used for education).
+  stages: [
+    {
+      kind: "prologue", start: "2016", end: "2021", org: "PTIT, Ho Chi Minh City", short: "PTIT",
+      role: "Bachelor of Software Engineering",
+      points: ["Posts and Telecommunications Institute of Technology, Ho Chi Minh City Branch."],
+      tags: ["Software engineering"],
+    },
+    {
+      start: "2021-01", end: "2021-12", org: "EBizWorld", role: "Game Developer",
+      points: ["Built responsive game UI and tutorial systems.", "Integrated AdMob for mobile games."],
+      tags: ["Mobile", "Game UI", "AdMob"],
+    },
+    {
+      start: "2021-12", end: "2022-12", org: "Helios Entertainment", short: "Helios", role: "Unity Game Developer",
+      points: [
+        "Implemented MetaMask wallet and blockchain features for Luna Rush; developed mobile-game features, internal production tools and client-server integrations.",
+      ],
+      tags: ["Mobile", "Production tools", "Blockchain"],
+    },
+    {
+      start: "2023-02", end: null, org: "Enish Vietnam", short: "Enish", role: "Unity Game Client Developer",
+      points: [
+        "Merged 238 PRs in Jan–May 2026, the run-up to launch, covering {{N}} features and {{N}} fixes across UI, animation, resources and client-server sync.",
+        "Built a shop-data reset tool that cut test setup from {{X min}} to {{Y s}}, used by {{N}} QA testers; configured Jenkins paths and build settings to produce WebGL builds after a project migration.",
+        { ai: "Built an AI agent system (Claude Agent SDK, Node.js, Slack) that investigates bug tickets across the Unity client and Go server, then hands fixes to a coding agent that can push only after human approval; ~190 commits in 7 weeks." },
+        "{{Seniority, only if true: reviewed teammates' PRs / mentored N developers / led feature X}}",
+      ],
+      tags: ["238 merged PRs, Jan–May 2026", "gRPC · Protobuf", "Three launched titles"],
+    },
+  ],
+  kit: [
+    { group: "Unity & C#", items: ["Unity", "C#", "UGUI", "TextMeshPro", "UniRx", "MVC", "State Machine", "Spine", "FinalIK"] },
+    { group: "Integration", items: ["gRPC", "Protobuf", "Master-data binding", "API-driven UI"] },
+    { group: "Delivery", items: ["Git/GitHub", "Jenkins", "WebGL builds"] },
+    { group: "AI tooling", items: [{ ai: "Claude Agent SDK" }, { ai: "Node.js" }, "Claude Code", "Cursor", "Codex"] },
+  ],
+  work: [
+    {
+      title: "Yowamushi Pedal Resonance Pedaism", meta: "Enish · {{start month}} – present",
+      role: "Battle Content (took ownership mid-project), gacha result presentation, PvP/GvG integration",
+      points: [
+        "Took ownership of Battle Content mid-project after a {{N-day}} handover; shipped race lists, race-detail dialogs and match-state logic {{for the Jul 2026 launch}}.",
+        "Built the gacha result presentation (Spine effects, voice/BGM timing, skip behavior), the core paid moment of the game; {{N}} banners shipped since launch.",
+        "Integrated Battle Content and PvP/GvG APIs, season states and rewards over gRPC/Protobuf and master data; fixed resume recovery and UI issues after protocol changes.",
+      ],
+      url: "https://www.enish.jp/news/2026/30166", linkText: "Release announcement",
+    },
+    {
+      title: "De:Lithe Last Memories", meta: "Enish · {{dates}}",
+      role: "Shop, event and minigame features",
+      points: [
+        "Developed shop, event and minigame features; improved UI performance and loading stability {{e.g. load time X s → Y s}} with UniRx and MVC/State Machine patterns.",
+      ],
+      url: "https://www.enish.jp/news/2024/27156", linkText: "Launch announcement",
+    },
+    {
+      title: "Laid-Back Camp All-in-one!!", meta: "Enish · Jun 2023 – Jan 2024 · 30+ person team",
+      role: "Gameplay and event systems",
+      points: ["Developed gameplay and event systems from launch onward, using MVC and State Machine patterns."],
+    },
+  ],
+  finish: {
+    title: "Next stage: your team?",
+    text: "Happy to talk about Unity client work, live-service games and AI-assisted development.",
+  },
+  contact: {
+    email: "tranvantruong.dev@gmail.com",
+    phone: "",   // add a number here to show it; left out by default because this page is public
+    links: [
+      { label: "GitHub", url: "https://github.com/tranvantruongdev", text: "github.com/tranvantruongdev" },
+      { label: "LinkedIn", url: "", text: "{{LinkedIn URL or remove}}" },
+    ],
+  },
+};
+
+/* ---------- helpers ---------- */
+const $ = (s) => document.querySelector(s);
+const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const chip = (on) => (on ? '<span class="chip-draft">Draft</span>' : "");
+const ph = (s) => s.replace(/\{\{(.+?)\}\}/g, '<mark class="ph">[$1]</mark>');
+const t = (s) => ph(esc(s));
+const shown = (x) => (typeof x === "string" ? x : CV.mentionAiSystem ? x.ai : null);   // { ai: "…" } items follow mentionAiSystem
+const visibleList = (arr) => (arr || []).map(shown).filter(Boolean);
+const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+const hash = (n) => { const s = Math.sin(n * 127.1 + 311.7) * 43758.5453; return s - Math.floor(s); };
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ---------- stages and the route they make ---------- */
+const today = new Date();
+const nowYear = today.getFullYear() + today.getMonth() / 12;
+const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const ym = (s) => { const [y, m] = String(s).split("-").map(Number); return { y, m: m || 0 }; };
+const asYear = (p, isEnd) => p.y + (p.m ? (isEnd ? p.m : p.m - 1) : (isEnd ? 12 : 0)) / 12;
+const fmt = (p) => (p.m ? `${MONTHS[p.m - 1]} ${p.y}` : String(p.y));
+const CATS = [["Cat 4", 14], ["Cat 3", 22], ["Cat 2", 31], ["Cat 1", 41], ["HC", 52]];
+let stageNo = 0;
+const stages = CV.stages.map((s, i) => {
+  const a = ym(s.start), z = s.end ? ym(s.end) : null;
+  const yrs = (z ? asYear(z, true) : nowYear) - asYear(a, false);
+  const pro = s.kind === "prologue";
+  const c = yrs < 1.5 ? 0 : yrs < 2 ? 1 : yrs < 2.5 ? 2 : yrs < 3.5 ? 3 : 4;
+  if (!pro) stageNo++;
+  return {
+    ...s, i, pro,
+    cat: pro ? -1 : c, catName: pro ? "Prologue" : CATS[c][0], height: pro ? 8 : CATS[c][1],
+    num: pro ? "P" : `S${stageNo}`, label: pro ? "Prologue" : `Stage ${stageNo}`,
+    startYear: a.y, years: `${fmt(a)} – ${z ? fmt(z) : "now"}`,
+  };
+});
+const N = stages.length, STAGES = stageNo, HAS_PRO = stages.some((s) => s.pro);
+const catClass = (s) => (s.pro ? " cat-flat" : s.cat === 4 ? " cat-hc" : "");
+const pointList = (pts) => {
+  const v = visibleList(pts);
+  return v.length ? `<ul class="points">${v.map((p) => `<li>${t(p)}</li>`).join("")}</ul>` : "";
+};
+const START = 150, GAP = 360;            // world px; 1 px = 25 m along the road, 10 m of climbing
+const KM0 = 60;                           // start line
+const km = (x) => Math.max(0, x - KM0) * 0.025;
+stages.forEach((s, i) => { s.x = START + GAP * i + GAP / 2; });
+const FINISH = START + GAP * N + 90;
+const WORLD = FINISH + 240;
+const H = new Float32Array(WORLD + 2);
+for (let x = 0; x <= WORLD + 1; x++) {
+  let h = 0;
+  for (const s of stages) {
+    const d = x - s.x, w = GAP * 0.96;
+    if (Math.abs(d) < w / 2) h += s.height * (0.5 + 0.5 * Math.cos((2 * Math.PI * d) / w));
+  }
+  const env = clamp(Math.min((x - START + 60) / 120, (FINISH - x) / 120), 0, 1);
+  h += env * (1.6 * Math.sin(x / 41) + 1 * Math.sin(x / 17 + 1.3) + 1.4);
+  H[x] = h;
+}
+const hAt = (x) => { const c = clamp(x, 0, WORLD), i = Math.floor(c), f = c - i; return H[i] * (1 - f) + H[i + 1] * f; };
+const slopeAt = (x) => (hAt(x + 3) - hAt(x - 3)) / 6;
+const gradeAt = (x) => slopeAt(x) * 40;  // percent
+let climbed = 0;
+for (let x = 1; x <= FINISH; x++) climbed += Math.max(0, H[x] - H[x - 1]) * 10;
+
+/* ---------- page content ---------- */
+$("#mark-name").textContent = CV.short;
+$("#mark-year").textContent = today.getFullYear();
+$("#hero-eyebrow").textContent = CV.eyebrow;
+$("#hero-name").textContent = CV.name;
+$("#hero-lead").innerHTML = t(`${CV.summary}${CV.mentionAiSystem ? CV.summaryAi : ""}. ${CV.rideHint}`);
+$("#shipped").innerHTML = CV.shipped.map((g) => `
+  <div class="shipped-item">
+    <h3>${t(g.title)}</h3>
+    <p>${t(g.meta)}</p>
+    <p class="shipped-scale">${g.url ? `<a href="${esc(g.url)}" target="_blank" rel="noopener">${t(g.scale)}</a>` : t(g.scale)}</p>
+  </div>`).join("");
+$("#foot-name").textContent = `${CV.name} · ${today.getFullYear()}`;
+$("#facts").innerHTML = CV.facts
+  .map((f) => `<div><dt>${esc(f.k)}</dt><dd>${t(f.v)}${chip(f.draft)}</dd></div>`).join("");
+$("#route-len").textContent = `${Math.round(km(FINISH))} km · ${HAS_PRO ? "prologue + " : ""}${STAGES} stages · ${Math.round(climbed / 10) * 10} m of climbing`;
+
+$("#stages").innerHTML = stages.slice().reverse().map((s) => `
+  <li class="stage-row${s.draft ? " is-draft" : ""}" data-i="${s.i}">
+    <span class="sr-num">${s.num}</span>
+    <span class="sr-years">${esc(s.years)}</span>
+    <div class="sr-main">
+      <strong>${t(s.org)}${chip(s.draft)}</strong>
+      <span>${t(s.role)}</span>
+      ${pointList(s.points)}
+    </div>
+    <span class="cat${catClass(s)}">${s.catName}</span>
+    <button class="sr-go" type="button" data-go="${s.i}">Ride here</button>
+  </li>`).join("");
+
+$("#kit-list").innerHTML = CV.kit.map((g) => `
+  <div class="kit-row"><dt>${esc(g.group)}</dt><dd>
+    <ul class="inline">${visibleList(g.items).map((it) => `<li>${t(it)}</li>`).join("")}</ul>
+    ${g.note ? `<p class="kit-note">${esc(g.note)}</p>` : ""}
+  </dd></div>`).join("");
+
+$("#work-list").innerHTML = CV.work.map((w) => `
+  <li class="work-item${w.draft ? " is-draft" : ""}">
+    <p class="work-meta">${t(w.meta)}</p>
+    <h3>${t(w.title)}${chip(w.draft)}</h3>
+    ${w.role ? `<p class="work-role"><span>My role</span>${t(w.role)}</p>` : ""}
+    ${w.desc ? `<p>${t(w.desc)}</p>` : ""}
+    ${pointList(w.points)}
+    ${w.url ? `<p class="work-link"><a href="${esc(w.url)}" target="_blank" rel="noopener">${esc(w.linkText || "Visit")} ↗</a></p>` : ""}
+  </li>`).join("");
+
+$("#finish-title").textContent = CV.finish.title;
+$("#finish-text").textContent = CV.finish.text;
+const C = CV.contact;
+$("#contact-list").innerHTML =
+  `<div class="contact-row"><dt>Email</dt><dd class="val"><a id="email-val" href="mailto:${esc(C.email)}">${esc(C.email)}</a>${chip(C.emailDraft)}</dd><dd><button class="copy" id="copy-email" type="button">Copy</button></dd></div>` +
+  (C.phone ? `<div class="contact-row"><dt>Phone</dt><dd class="val">${esc(C.phone)}</dd><dd></dd></div>` : "") +
+  C.links.map((l) => `<div class="contact-row"><dt>${esc(l.label)}</dt><dd class="val">${l.url
+    ? `<a href="${esc(l.url)}" target="_blank" rel="noopener">${t(l.text)}</a>` : t(l.text)}${chip(l.draft)}</dd><dd></dd></div>`).join("");
+
+const holes = (JSON.stringify(CV).match(/\{\{.+?\}\}/g) || []).length;
+const checks = CV.checks || [];
+const anyDraft = holes || checks.length || CV.facts.some((f) => f.draft) || CV.stages.some((s) => s.draft)
+  || CV.work.some((w) => w.draft) || C.emailDraft || C.links.some((l) => l.draft);
+if (anyDraft) {
+  $("#draft-note").innerHTML = `<b>Draft.</b> ${holes} highlighted field${holes === 1 ? "" : "s"} and ${checks.length} check${checks.length === 1 ? "" : "s"} left. `
+    + checks.map(esc).join(" ") + " Edit them in the <b>CV</b> object at the top of the script.";
+}
+$("#draft-note").hidden = !anyDraft;
+
+$("#copy-email").addEventListener("click", async (e) => {
+  const btn = e.currentTarget;
+  try {
+    await navigator.clipboard.writeText(CV.contact.email);
+    btn.textContent = "Copied";
+  } catch {
+    const r = document.createRange();
+    r.selectNodeContents($("#email-val"));
+    const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r);
+    btn.textContent = "Selected";
+  }
+  setTimeout(() => { btn.textContent = "Copy"; }, 1600);
+});
+
+/* ---------- palette from CSS tokens ---------- */
+const TOKENS = ["bg", "surface", "ink", "muted", "line", "jersey", "on-jersey", "kom", "sky-top", "sky-bottom", "sun", "star",
+  "ridge-far", "ridge-near", "woods", "road", "road-edge", "grade-0", "grade-1", "grade-2", "grade-3", "banner", "post",
+  "bike", "tyre", "shorts", "skin"];
+const P = {};
+const readPalette = () => {
+  const cs = getComputedStyle(document.documentElement);
+  for (const t of TOKENS) P[t] = cs.getPropertyValue("--" + t).trim();
+};
+const gradeCol = (g) => (g >= 9 ? P["grade-3"] : g >= 6 ? P["grade-2"] : g >= 3 ? P["grade-1"] : P["grade-0"]);
+
+/* ---------- ride scene ---------- */
+const view = $("#ride-view"), canvas = $("#ride-canvas"), ctx = canvas.getContext("2d");
+const buf = document.createElement("canvas"), b = buf.getContext("2d");
+let dpr = 1, S = 3, bw = 0, bh = 0, base = 0, stars = [];
+
+const rider = { x: KM0, v: 0, z: 0, vz: 0, dist: 0 };
+const keys = { left: false, right: false };
+let auto = null;
+
+function resize() {
+  const r = view.getBoundingClientRect();
+  if (!r.width || !r.height) return;
+  dpr = Math.min(window.devicePixelRatio || 1, 3);
+  canvas.width = Math.round(r.width * dpr);
+  canvas.height = Math.round(r.height * dpr);
+  S = Math.max(2, Math.floor(canvas.height / 140));
+  bw = Math.ceil(canvas.width / S);
+  bh = Math.ceil(canvas.height / S);
+  buf.width = bw; buf.height = bh;
+  base = bh - 26;
+  stars = [];
+  for (let i = 0; i < 70; i++) stars.push({ x: hash(i * 3.1) * bw * 1.5, y: Math.floor(hash(i * 7.7 + 2) * bh * 0.5) });
+  drawScene(performance.now() / 1000);
+}
+
+/* pixel primitives on the low-res buffer */
+function seg(x0, y0, x1, y1) {
+  x0 = Math.round(x0); y0 = Math.round(y0); x1 = Math.round(x1); y1 = Math.round(y1);
+  const dx = Math.abs(x1 - x0), sx = x0 < x1 ? 1 : -1, dy = -Math.abs(y1 - y0), sy = y0 < y1 ? 1 : -1;
+  let err = dx + dy;
+  for (;;) {
+    b.fillRect(x0, y0, 1, 1);
+    if (x0 === x1 && y0 === y1) break;
+    const e2 = 2 * err;
+    if (e2 >= dy) { err += dy; x0 += sx; }
+    if (e2 <= dx) { err += dx; y0 += sy; }
+  }
+}
+function ring(cx, cy, r) {
+  cx = Math.round(cx); cy = Math.round(cy);
+  let x = r, y = 0, err = 1 - r;
+  while (x >= y) {
+    for (const [a, c] of [[x, y], [y, x], [-y, x], [-x, y], [-x, -y], [-y, -x], [y, -x], [x, -y]]) b.fillRect(cx + a, cy + c, 1, 1);
+    y++;
+    if (err < 0) err += 2 * y + 1; else { x--; err += 2 * (y - x) + 1; }
+  }
+}
+function disc(cx, cy, r) {
+  cx = Math.round(cx); cy = Math.round(cy);
+  for (let y = -r; y <= r; y++) { const w = Math.floor(Math.sqrt(r * r - y * y + r * 0.8)); b.fillRect(cx - w, cy + y, 2 * w + 1, 1); }
+}
+
+function drawRider(ox, oy, ang, crank, wheel) {
+  const c = Math.cos(ang), s = Math.sin(ang);
+  const T = (p) => [ox + p[0] * c - p[1] * s, oy + p[0] * s + p[1] * c];
+  const line = (p, q) => { const a = T(p), d = T(q); seg(a[0], a[1], d[0], d[1]); };
+  const thick = (p, q) => { line(p, q); line([p[0], p[1] + 1], [q[0], q[1] + 1]); };
+  const R = [-7, -5], F = [7, -5], BB = [-1, -4], ST = [-3, -12], HT = [5, -11], HB = [7, -13];
+  const HIP = [-3, -14], SH = [2, -19], HEAD = [4.5, -21.5];
+  const pedal = (a) => [BB[0] + 3 * Math.cos(a), BB[1] + 3 * Math.sin(a)];
+  const knee = (hip, p) => {
+    const L = 6.4, dx = p[0] - hip[0], dy = p[1] - hip[1], len = Math.hypot(dx, dy) || 1;
+    const d = Math.min(len, 2 * L - 0.01), ux = dx / len, uy = dy / len;
+    const hgt = Math.sqrt(Math.max(0, L * L - (d / 2) ** 2));
+    let px = -uy, py = ux;
+    if (px < 0) { px = -px; py = -py; }
+    return [hip[0] + ux * d / 2 + px * hgt, hip[1] + uy * d / 2 + py * hgt];
+  };
+  const leg = (p) => { const k = knee(HIP, p); b.fillStyle = P.shorts; thick(HIP, k); b.fillStyle = P.skin; line(k, p); };
+
+  leg(pedal(crank + Math.PI));                       // far leg
+  b.fillStyle = P.post;                              // spokes
+  for (const w of [R, F]) {
+    const [cx, cy] = T(w);
+    for (const a of [wheel, wheel + Math.PI / 2]) seg(cx - Math.cos(a) * 4, cy - Math.sin(a) * 4, cx + Math.cos(a) * 4, cy + Math.sin(a) * 4);
+  }
+  b.fillStyle = P.tyre;
+  for (const w of [R, F]) { const [cx, cy] = T(w); ring(cx, cy, 5); }
+  b.fillStyle = P.bike;                              // frame
+  line(R, BB); line(BB, ST); line(ST, R); line(BB, HT); line(ST, HT); line(HT, F);
+  b.fillStyle = P.tyre;
+  line(HT, HB); line(HB, [8, -11]); line([-5, -13], [-2, -13]);
+  leg(pedal(crank));                                 // near leg
+  b.fillStyle = P.jersey;                            // torso and sleeve
+  thick(HIP, SH); line([HIP[0] + 1, HIP[1]], [SH[0] + 1, SH[1]]);
+  line(SH, [4, -17]);
+  b.fillStyle = P.skin;
+  line([4, -17], HB);
+  const [hx, hy] = T(HEAD);
+  disc(hx, hy, 2);
+  b.fillStyle = P.bike;                              // helmet
+  b.fillRect(Math.round(hx) - 2, Math.round(hy) - 3, 5, 2);
+  b.fillStyle = P.tyre;                              // glasses
+  b.fillRect(Math.round(hx) + 1, Math.round(hy) - 1, 2, 1);
+}
+
+function arch(sx, kind, camX, gy) {
+  const x0 = Math.round(sx - 17 - camX), x1 = Math.round(sx + 17 - camX);
+  if (x1 < -4 || x0 > bw + 4) return null;
+  const gl = gy(sx - 17), gr = gy(sx + 17), top = Math.min(gl, gr) - 30;
+  b.fillStyle = P.post;
+  b.fillRect(x0, top, 2, gl - top + 1);
+  b.fillRect(x1 - 1, top, 2, gr - top + 1);
+  const bx = x0 + 2, bW = x1 - x0 - 3, bt = top + 1, bH = 7;
+  b.fillStyle = kind === "hc" ? P.jersey : P.banner;
+  b.fillRect(bx, bt, bW, bH);
+  if (kind === "kom") {
+    b.fillStyle = P.kom;
+    for (let r = 0; r < 2; r++) for (let x = bx + 1 + r * 2; x < bx + bW - 1; x += 4) b.fillRect(x, bt + 1 + r * 3, 2, 2);
+  } else if (kind === "finish") {
+    b.fillStyle = P.tyre;
+    for (let y = 0; y < bH; y += 2) for (let x = bx + ((y >> 1) % 2) * 2; x < bx + bW; x += 4) b.fillRect(x, bt + y, 2, Math.min(2, bH - y));
+  }
+  b.fillStyle = P.post;
+  b.fillRect(bx, top, bW, 1);
+  b.fillRect(bx, bt + bH, bW, 1);
+  return { x: (x0 + x1) / 2, y: top };
+}
+
+const SHIRTS = ["jersey", "kom", "banner", "bike"];
+function crowd(sx, camX, cheer, t, gy) {
+  [-28, -25, -22, 22, 25, 28].forEach((o, k) => {
+    const wx = sx + o, x = Math.round(wx - camX);
+    if (x < -3 || x > bw + 3) return;
+    const bob = cheer && !reduce ? Math.round(Math.abs(Math.sin(t * 9 + k * 1.9)) * 2) : 0;
+    const y = gy(wx) - bob;
+    b.fillStyle = P.shorts; b.fillRect(x, y - 2, 2, 2);
+    b.fillStyle = P[SHIRTS[(k + sx) % 4]]; b.fillRect(x, y - 5, 2, 3);
+    b.fillStyle = P.skin; b.fillRect(x, y - 7, 2, 2);
+    if (cheer) { b.fillRect(x - 1, y - 8, 1, 2); b.fillRect(x + 2, y - 8, 1, 2); }
+  });
+}
+
+const nearStage = () => {
+  for (const s of stages) if (Math.abs(rider.x - s.x) < 45) return s.i;
+  return Math.abs(rider.x - FINISH) < 45 ? N : -1;
+};
+
+function drawScene(t) {
+  if (!bw) return;
+  const camX = Math.floor(clamp(rider.x - bw * 0.38, 0, Math.max(0, WORLD - bw)));
+  const gy = (wx) => Math.round(base - hAt(wx));
+  const labels = [];
+
+  const sky = b.createLinearGradient(0, 0, 0, bh);
+  sky.addColorStop(0, P["sky-top"]); sky.addColorStop(1, P["sky-bottom"]);
+  b.fillStyle = sky; b.fillRect(0, 0, bw, bh);
+  b.fillStyle = P.star;
+  const sw = bw * 1.5;
+  for (const s of stars) { const x = Math.floor((((s.x - camX * 0.05) % sw) + sw) % sw); if (x < bw) b.fillRect(x, s.y, 1, 1); }
+  b.fillStyle = P.sun; disc(bw * 0.8, bh * 0.2, 6);
+
+  b.fillStyle = P["ridge-far"];
+  for (let x = 0; x < bw; x++) {
+    const w = x + camX * 0.15;
+    const y = Math.round(bh * 0.46 - 13 * Math.sin(w / 53) - 7 * Math.sin(w / 23 + 1) - 3 * Math.sin(w / 9 + 2));
+    b.fillRect(x, y, 1, bh - y);
+  }
+  b.fillStyle = P["ridge-near"];
+  for (let x = 0; x < bw; x++) {
+    const w = x + camX * 0.35;
+    const y = Math.round(bh * 0.6 - 9 * Math.sin(w / 37 + 3) - 5 * Math.sin(w / 15) - 2 * Math.sin(w / 6 + 1));
+    b.fillRect(x, y, 1, bh - y);
+  }
+  const band = bh - 36, off = camX * 0.7;
+  b.fillStyle = P.woods;
+  b.fillRect(0, band, bw, bh - band);
+  for (let k = Math.floor(off / 6) - 2; k * 6 - off < bw + 8; k++) {
+    if (hash(k) < 0.42) continue;
+    const x = Math.round(k * 6 - off + hash(k + 99) * 3), h = 5 + Math.round(hash(k + 7) * 10);
+    for (let r = 0; r < h; r++) { const w = Math.max(1, Math.round((1 - r / h) * 2.6)); b.fillRect(x - (w >> 1), band - r, w, 1); }
+  }
+
+  for (let x = 0; x < bw; x++) {               // the road, with the ground coloured like a stage profile
+    const wx = camX + x, y = gy(wx);
+    b.fillStyle = gradeCol(gradeAt(wx)); b.fillRect(x, y + 4, 1, bh - y - 4);
+    b.fillStyle = P.road; b.fillRect(x, y + 1, 1, 3);
+    b.fillStyle = P["road-edge"]; b.fillRect(x, y, 1, 1);
+  }
+  for (let k = Math.max(0, Math.ceil((camX - KM0) / 40)); KM0 + k * 40 < camX + bw; k++) {   // a post every km, a label every 5
+    const x = KM0 + k * 40 - camX, y = gy(KM0 + k * 40);
+    b.fillStyle = P["road-edge"]; b.fillRect(x, y - 5, 1, 5);
+    b.fillStyle = P.kom; b.fillRect(x, y - 7, 1, 2);
+    if (k % 5 === 0) labels.push({ x, text: `${k} km`, kind: "km" });
+  }
+
+  const near = nearStage();
+  for (const s of stages) {
+    crowd(s.x, camX, near === s.i, t, gy);
+    const kind = s.pro ? "plain" : s.cat === 4 ? "hc" : "kom";
+    const l = arch(s.x, kind, camX, gy);
+    if (l) labels.push({ ...l, text: s.pro ? s.label : `${s.label} · ${s.catName}`, kind });
+  }
+  crowd(FINISH, camX, near === N, t, gy);
+  const fl = arch(FINISH, "finish", camX, gy);
+  if (fl) labels.push({ ...fl, text: "Finish", kind: "finish" });
+
+  const ang = Math.atan2(-(hAt(rider.x + 5) - hAt(rider.x - 5)), 10);
+  drawRider(Math.round(rider.x - camX), gy(rider.x) - Math.round(rider.z), ang, rider.dist / 6, rider.dist / 5);
+
+  ctx.imageSmoothingEnabled = false;
+  ctx.drawImage(buf, 0, 0, bw * S, bh * S);
+
+  const fs = Math.round(11 * dpr);
+  ctx.font = `600 ${fs}px "IBM Plex Mono", ui-monospace, monospace`;
+  ctx.textAlign = "center"; ctx.textBaseline = "middle";
+  for (const L of labels) {
+    const txt = L.text.toUpperCase();
+    if (L.kind === "km") {
+      ctx.globalAlpha = 0.7; ctx.fillStyle = P.ink;
+      ctx.fillText(txt, L.x * S, canvas.height - fs);
+      ctx.globalAlpha = 1;
+      continue;
+    }
+    const X = L.x * S, Y = L.y * S - fs * 1.2, w = ctx.measureText(txt).width + fs, h = fs * 1.7;
+    ctx.fillStyle = L.kind === "hc" ? P.jersey : P.surface;
+    ctx.fillRect(Math.round(X - w / 2), Math.round(Y - h / 2), Math.round(w), Math.round(h));
+    ctx.fillStyle = L.kind === "hc" ? P["on-jersey"] : P.ink;
+    ctx.fillText(txt, X, Y + dpr);
+  }
+}
+
+/* ---------- route profile strip ---------- */
+const strip = $("#profile-canvas"), sctx = strip.getContext("2d");
+const PAD = 10;
+function drawStrip() {
+  const w = strip.clientWidth, h = strip.clientHeight;
+  if (!w) return;
+  const d = Math.min(window.devicePixelRatio || 1, 3);
+  if (strip.width !== Math.round(w * d) || strip.height !== Math.round(h * d)) { strip.width = Math.round(w * d); strip.height = Math.round(h * d); }
+  sctx.setTransform(d, 0, 0, d, 0, 0);
+  sctx.clearRect(0, 0, w, h);
+  const top = 24, bot = h - 22, span = w - PAD * 2, maxH = 62;
+  const X = (wx) => PAD + (wx / WORLD) * span, Y = (hh) => bot - (Math.max(0, hh) / maxH) * (bot - top);
+  for (let p = 0; p < span; p++) {
+    const wx = (p / span) * WORLD, y = Y(hAt(wx));
+    sctx.fillStyle = gradeCol(gradeAt(wx)); sctx.fillRect(PAD + p, y, 1, bot - y);
+  }
+  sctx.strokeStyle = P.ink; sctx.lineWidth = 1.25; sctx.beginPath();
+  for (let p = 0; p <= span; p += 2) { const y = Y(hAt((p / span) * WORLD)); p ? sctx.lineTo(PAD + p, y) : sctx.moveTo(PAD, y); }
+  sctx.stroke();
+  sctx.fillStyle = P.line; sctx.fillRect(PAD, bot, span, 1);
+
+  sctx.font = `500 10.5px "IBM Plex Mono", ui-monospace, monospace`;
+  sctx.textAlign = "center";
+  for (const s of stages) {
+    const x = X(s.x), y = Y(hAt(s.x));
+    sctx.fillStyle = P.ink; sctx.textBaseline = "bottom"; sctx.fillText(s.num, x, y - 4);
+    sctx.fillStyle = P.muted; sctx.textBaseline = "top"; sctx.fillText(String(s.startYear), x, bot + 6);
+  }
+  const fx = X(FINISH), fy = Y(hAt(FINISH));
+  for (let i = 0; i < 4; i++) for (let j = 0; j < 2; j++) { sctx.fillStyle = (i + j) % 2 ? P.bg : P.ink; sctx.fillRect(fx - 4 + i * 2, fy - 10 + j * 2, 2, 2); }
+  sctx.fillStyle = P.ink; sctx.fillRect(fx - 4, fy - 10, 1, 10);
+  sctx.fillStyle = P.muted; sctx.textBaseline = "top"; sctx.fillText("Finish", fx, bot + 6);
+
+  const rx = X(rider.x), ry = Y(hAt(rider.x));
+  sctx.fillStyle = P.kom; sctx.fillRect(Math.round(rx) - 0.75, 4, 1.5, bot - 4);
+  sctx.beginPath(); sctx.arc(rx, ry, 4, 0, Math.PI * 2); sctx.fill();
+  sctx.strokeStyle = P.surface; sctx.lineWidth = 1.5; sctx.stroke();
+}
+
+/* ---------- HUD, stage panel, roadbook highlight ---------- */
+const hudStage = $("#hud-stage"), hudStats = $("#hud-stats"), panel = $("#stage-panel"), hint = $("#ride-hint");
+const rows = [...document.querySelectorAll(".stage-row")];
+const stageAt = (x) => {
+  if (x < stages[0].x - GAP / 2) return -1;
+  for (const s of stages) if (Math.abs(x - s.x) <= GAP / 2) return s.i;
+  return N;
+};
+function updateHud() {
+  const g = Math.round(gradeAt(rider.x));
+  hudStats.textContent = `${km(rider.x).toFixed(1)} km · ${Math.round(150 + hAt(rider.x) * 10)} m · ${g > 0 ? "+" : g < 0 ? "−" : ""}${Math.abs(g)}%`;
+}
+function renderPanel(i) {
+  if (i < 0) {
+    panel.innerHTML = `<div class="sp-num">Start</div><div class="sp-body"><p class="sp-meta">km 0 · start line</p><h3>${HAS_PRO ? "Prologue + " : ""}${STAGES} stages, ${stages[0].startYear} to now</h3><p class="sp-note">Ride right to reach the first summit, or press Auto-ride and the route plays itself, stopping at each one.</p></div>`;
+  } else if (i >= N) {
+    panel.innerHTML = `<div class="sp-num">Finish</div><div class="sp-body"><p class="sp-meta">${Math.round(km(FINISH))} km · route complete</p><h3>${esc(CV.finish.title)}</h3><p class="sp-note">${esc(CV.finish.text)} <a href="#contact">Get in touch</a></p></div>`;
+  } else {
+    const s = stages[i];
+    panel.innerHTML = `<div class="sp-num"><span>${s.num}</span><span class="cat${catClass(s)}">${s.catName}</span></div>
+      <div class="sp-body">
+        <p class="sp-meta">${s.pro ? "Prologue" : `${s.label} of ${STAGES}`} · ${esc(s.years)}</p>
+        <h3>${t(s.org)}${chip(s.draft)}</h3>
+        <p class="sp-role">${t(s.role)}</p>
+        ${pointList(s.points)}
+        ${s.tags && s.tags.length ? `<ul class="tags">${s.tags.map((tag) => `<li>${t(tag)}</li>`).join("")}</ul>` : ""}
+      </div>`;
+  }
+  const cur = stages[i];
+  hudStage.textContent = i < 0 ? "Start line" : i >= N ? "Finish"
+    : `${cur.pro ? cur.label : `${cur.label}/${STAGES}`} · ${cur.short || cur.org}`;
+  rows.forEach((r) => r.classList.toggle("is-current", +r.dataset.i === i));
+}
+
+/* ---------- riding ---------- */
+const autoBtn = $("#auto-btn");
+const syncAuto = () => {
+  const touring = !!(auto && auto.chain);
+  autoBtn.textContent = touring ? "Pause" : "Auto-ride";
+  autoBtn.setAttribute("aria-pressed", String(touring));
+};
+const stopAuto = () => { if (auto) { auto = null; syncAuto(); } };
+const summits = () => [...stages.map((s) => s.x), FINISH];
+function startTour() {
+  if (rider.x >= FINISH - 4) { rider.x = KM0; rider.v = 0; }
+  auto = { targets: summits().filter((t) => t > rider.x + 4), idx: 0, dwell: 0, cruise: 120, chain: true };
+  syncAuto();
+}
+function rideTo(x) {
+  auto = { targets: [x], idx: 0, dwell: 0, cruise: clamp(Math.abs(x - rider.x) * 0.6, 120, 520), chain: false };
+  syncAuto();
+}
+function autopilot(dt) {
+  const r = rider, A = auto;
+  if (A.dwell > 0) {
+    r.v = 0; A.dwell -= dt;
+    if (A.dwell <= 0 && ++A.idx >= A.targets.length) stopAuto();
+    return;
+  }
+  const d = A.targets[A.idx] - r.x;
+  const want = Math.sign(d) * Math.min(A.cruise, Math.sqrt(2 * 220 * Math.abs(d)));
+  r.v += clamp(want - r.v, -320 * dt, 240 * dt);
+  if (Math.abs(d) < 2 && Math.abs(r.v) < 25) {
+    r.x = A.targets[A.idx]; r.v = 0;
+    if (A.chain && A.idx < A.targets.length - 1) A.dwell = 3.2; else stopAuto();
+  }
+}
+const hop = () => { if (rider.z === 0) { rider.vz = 90; rider.z = 0.01; } };
+function update(dt) {
+  const r = rider;
+  if (auto) autopilot(dt);
+  else {
+    const input = keys.left || keys.right;
+    if (keys.right) r.v += 170 * dt;
+    if (keys.left) r.v -= (r.v > 0 ? 280 : 120) * dt;
+    if (r.z === 0) r.v -= 230 * slopeAt(r.x) * dt;   // climbs slow you down, descents pull you along
+    if (!input) { r.v *= Math.max(0, 1 - 1.1 * dt); if (Math.abs(r.v) < 14) r.v = 0; }
+    r.v = clamp(r.v, -90, 180);
+  }
+  if (r.z > 0 || r.vz !== 0) {
+    r.vz -= 340 * dt; r.z += r.vz * dt;
+    if (r.z <= 0) { r.z = 0; r.vz = 0; }
+  }
+  const nx = clamp(r.x + r.v * dt, 30, WORLD - 30);
+  if (nx === r.x && !auto) r.v = 0;
+  r.dist += nx - r.x;
+  r.x = nx;
+}
+
+/* ---------- input ---------- */
+const RIGHT = ["ArrowRight", "d", "D"], LEFT = ["ArrowLeft", "a", "A"], HOP = [" ", "ArrowUp", "w", "W"];
+view.addEventListener("keydown", (e) => {
+  if (RIGHT.includes(e.key)) { keys.right = true; stopAuto(); e.preventDefault(); }
+  else if (LEFT.includes(e.key)) { keys.left = true; stopAuto(); e.preventDefault(); }
+  else if (HOP.includes(e.key)) { hop(); e.preventDefault(); }
+});
+view.addEventListener("keyup", (e) => {
+  if (RIGHT.includes(e.key)) keys.right = false;
+  if (LEFT.includes(e.key)) keys.left = false;
+});
+view.addEventListener("blur", () => { keys.left = keys.right = false; });
+view.addEventListener("pointerdown", () => view.focus({ preventScroll: true }));
+
+function holdButton(btn, key) {
+  const off = () => { keys[key] = false; btn.classList.remove("is-held"); };
+  btn.addEventListener("pointerdown", (e) => {
+    e.preventDefault();
+    keys[key] = true; stopAuto(); btn.classList.add("is-held");
+    btn.setPointerCapture?.(e.pointerId);
+  });
+  btn.addEventListener("pointerup", off);
+  btn.addEventListener("pointercancel", off);
+  btn.addEventListener("lostpointercapture", off);
+  btn.addEventListener("contextmenu", (e) => e.preventDefault());
+  btn.addEventListener("click", (e) => {     // keyboard activation gives a short push
+    if (e.detail === 0) { stopAuto(); rider.v = clamp(rider.v + (key === "right" ? 70 : -70), -90, 180); }
+  });
+}
+holdButton($("#ctl-right"), "right");
+holdButton($("#ctl-left"), "left");
+$("#ctl-hop").addEventListener("click", hop);
+autoBtn.addEventListener("click", () => {
+  if (auto && auto.chain) stopAuto(); else startTour();
+  view.focus({ preventScroll: true });
+});
+$("#hero-auto").addEventListener("click", () => {
+  view.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" });
+  startTour();
+  view.focus({ preventScroll: true });
+});
+$("#stages").addEventListener("click", (e) => {
+  const go = e.target.closest("[data-go]");
+  if (!go) return;
+  rideTo(stages[+go.dataset.go].x);
+  view.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" });
+  view.focus({ preventScroll: true });
+});
+strip.addEventListener("click", (e) => {
+  const r = strip.getBoundingClientRect();
+  const wx = ((e.clientX - r.left - PAD) / (r.width - PAD * 2)) * WORLD;
+  rideTo(summits().reduce((best, p) => (Math.abs(p - wx) < Math.abs(best - wx) ? p : best)));
+  view.focus({ preventScroll: true });
+});
+
+/* ---------- loop ---------- */
+let last = performance.now(), onScreen = true, stripDue = true, hudClock = 0, curStage = null;
+function frame(now) {
+  const dt = Math.min(0.05, (now - last) / 1000);
+  last = now;
+  if (onScreen && !document.hidden) {
+    const px = rider.x, pz = rider.z;
+    update(dt);
+    const moved = rider.x !== px || rider.z !== pz;
+    if (moved || auto || (nearStage() !== -1 && !reduce)) drawScene(now / 1000);
+    if (moved) { stripDue = true; hint.classList.add("is-gone"); }
+    const si = stageAt(rider.x);
+    if (si !== curStage) { curStage = si; renderPanel(si); }
+    hudClock -= dt;
+    if (stripDue && hudClock <= 0) { hudClock = 0.1; stripDue = false; updateHud(); drawStrip(); }
+  }
+  requestAnimationFrame(frame);
+}
+
+function retheme() { readPalette(); drawScene(performance.now() / 1000); drawStrip(); }
+
+function boot(data) {
+  if (data && typeof data.x === "number") rider.x = clamp(data.x, 30, WORLD - 30);
+  readPalette();
+  resize();
+  drawStrip();
+  updateHud();
+  new ResizeObserver(() => { resize(); drawStrip(); }).observe(view);
+  new IntersectionObserver((es) => { onScreen = es[0].isIntersecting; }).observe(view);
+  matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change", retheme);
+  new MutationObserver(retheme).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+  document.fonts?.ready.then(retheme);
+  requestAnimationFrame(frame);
+}
+window.claude?.hot?.snapshot?.(() => ({ x: rider.x }));
+window.claude?.hot?.ready ? window.claude.hot.ready(boot) : boot(window.claude?.hot?.data ?? {});
+})();
+</script>
+</body>
+</html>
