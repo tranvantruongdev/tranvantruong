@@ -544,13 +544,13 @@ mark.ph { padding: 0 3px; border-radius: 2px; background: var(--ph-bg); color: v
 const CV = {
   name: "Trần Văn Trường",
   short: "Trường",
-  // Placeholders: put a label in double curly braces anywhere; it shows highlighted and the Draft note counts it.
+  // Placeholders: a label in double curly braces shows highlighted here and in local previews.
+  // On the live site (tranvantruong.pages.dev) unfinished text is hidden instead: a [[double-bracket]]
+  // segment that still holds a placeholder is dropped, and any item still holding one is left out.
+  // Add #draft to the live URL to see the highlighted version there.
   // Same content as pdf/build_cv_v4.py — change both together.
-  mentionAiSystem: true,   // the agent system built at work; set false if Enish says no
-  checks: [                // things to confirm before publishing; delete each once done
-    "Confirm Enish is fine with mentioning the AI agent system.",
-    "Curate GitHub pins (currently university homework) or remove the GitHub link.",
-  ],
+  mentionAiSystem: false,  // the agent system built at work; set true once Enish confirms it's fine to mention
+  checks: [],              // things that must be resolved before a push (the push guard blocks while any remain)
   eyebrow: "Unity game client developer · C# · 5+ years",
   summary: "I'm a Unity client developer with 5+ years and three launched titles at Japanese mobile-game publisher Enish, including the July 2026 launch of Yowamushi Pedal Resonance Pedaism, a licensed anime title with 250K+ pre-registrations. I took ownership of Battle Content mid-project and built the gacha result presentation, both live at launch",
   summaryAi: ". I also build AI-agent tooling for bug investigation",
@@ -595,8 +595,8 @@ const CV = {
     {
       start: "2023-02", end: null, org: "Enish Vietnam", short: "Enish", role: "Unity Game Client Developer",
       points: [
-        "Merged 238 PRs in Jan–May 2026, the run-up to launch, covering {{N}} features and {{N}} fixes across UI, animation, resources and client-server sync.",
-        "Built a shop-data reset tool that cut test setup from {{X min}} to {{Y s}}, used by {{N}} QA testers; configured Jenkins paths and build settings to produce WebGL builds after a project migration.",
+        "Merged 238 PRs in Jan–May 2026, the run-up to launch[[, covering {{N}} features and {{N}} fixes]], across UI, animation, resources and client-server sync.",
+        "Built a shop-data reset tool for QA[[ that cut test setup from {{X min}} to {{Y s}} for {{N}} testers]]; configured Jenkins paths and build settings to produce WebGL builds after a project migration.",
         { ai: "Built an AI agent system (Claude Agent SDK, Node.js, Slack) that investigates bug tickets across the Unity client and Go server, then hands fixes to a coding agent that can push only after human approval; ~190 commits in 7 weeks." },
         "{{Seniority, only if true: reviewed teammates' PRs / mentored N developers / led feature X}}",
       ],
@@ -611,20 +611,20 @@ const CV = {
   ],
   work: [
     {
-      title: "Yowamushi Pedal Resonance Pedaism", meta: "Enish · {{start month}} – present",
+      title: "Yowamushi Pedal Resonance Pedaism", meta: "Enish[[ · {{start month}} – present]]",
       role: "Battle Content (owner for about a year), gacha result presentation, PvP/GvG integration",
       points: [
         "Owned Battle Content for about a year after taking it over mid-project from a short handover; shipped race lists, race-detail dialogs and match-state logic for the Jul 2026 launch.",
-        "Built the gacha result presentation (Spine effects, voice/BGM timing, skip behavior), the core paid moment of the game; {{N}} banners shipped since launch.",
+        "Built the gacha result presentation (Spine effects, voice/BGM timing, skip behavior), the core paid moment of the game[[; {{N}} banners shipped since launch]].",
         "Integrated Battle Content and PvP/GvG APIs, season states and rewards over gRPC/Protobuf and master data; fixed resume recovery and UI issues after protocol changes.",
       ],
       url: "https://www.enish.jp/news/2026/30166", linkText: "Release announcement",
     },
     {
-      title: "De:Lithe Last Memories", meta: "Enish · {{dates}}",
+      title: "De:Lithe Last Memories", meta: "Enish[[ · {{dates}}]]",
       role: "Shop, event and minigame features",
       points: [
-        "Developed shop, event and minigame features; improved UI performance and loading stability {{e.g. load time X s → Y s}} with UniRx and MVC/State Machine patterns.",
+        "Developed shop, event and minigame features; improved UI performance and loading stability[[ ({{e.g. load time X s → Y s}})]] with UniRx and MVC/State Machine patterns.",
       ],
       url: "https://www.enish.jp/news/2024/27156", linkText: "Launch announcement",
     },
@@ -652,10 +652,16 @@ const CV = {
 const $ = (s) => document.querySelector(s);
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const chip = (on) => (on ? '<span class="chip-draft">Draft</span>' : "");
+// The live site hides unfinished text; #public previews that anywhere, #draft shows the highlights on the live site.
+const PUBLIC = location.hash === "#public"
+  || (/(^|\.)tranvantruong\.pages\.dev$/.test(location.hostname) && location.hash !== "#draft");
+const HOLE = /\{\{.+?\}\}/;
+const prep = (s) => s.replace(/\[\[(.*?)\]\]/g, (m, seg) => (PUBLIC && HOLE.test(seg) ? "" : seg));
+const ready = (s) => !PUBLIC || !HOLE.test(prep(s));   // false: item still unfinished, leave it out
 const ph = (s) => s.replace(/\{\{(.+?)\}\}/g, '<mark class="ph">[$1]</mark>');
-const t = (s) => ph(esc(s));
+const t = (s) => ph(esc(prep(s)));
 const shown = (x) => (typeof x === "string" ? x : CV.mentionAiSystem ? x.ai : null);   // { ai: "…" } items follow mentionAiSystem
-const visibleList = (arr) => (arr || []).map(shown).filter(Boolean);
+const visibleList = (arr) => (arr || []).map(shown).filter((x) => x && ready(x));
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
 const hash = (n) => { const s = Math.sin(n * 127.1 + 311.7) * 43758.5453; return s - Math.floor(s); };
 const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -724,7 +730,7 @@ $("#shipped").innerHTML = CV.shipped.map((g) => `
     <p class="shipped-scale">${g.url ? `<a href="${esc(g.url)}" target="_blank" rel="noopener">${t(g.scale)}</a>` : t(g.scale)}</p>
   </div>`).join("");
 $("#foot-name").textContent = `${CV.name} · ${today.getFullYear()}`;
-$("#facts").innerHTML = CV.facts
+$("#facts").innerHTML = CV.facts.filter((f) => ready(f.v))
   .map((f) => `<div><dt>${esc(f.k)}</dt><dd>${t(f.v)}${chip(f.draft)}</dd></div>`).join("");
 $("#route-len").textContent = `${Math.round(km(FINISH))} km · ${HAS_PRO ? "prologue + " : ""}${STAGES} stages · ${Math.round(climbed / 10) * 10} m of climbing`;
 
@@ -763,18 +769,18 @@ const C = CV.contact;
 $("#contact-list").innerHTML =
   `<div class="contact-row"><dt>Email</dt><dd class="val"><a id="email-val" href="mailto:${esc(C.email)}">${esc(C.email)}</a>${chip(C.emailDraft)}</dd><dd><button class="copy" id="copy-email" type="button">Copy</button></dd></div>` +
   (C.phone ? `<div class="contact-row"><dt>Phone</dt><dd class="val">${esc(C.phone)}</dd><dd></dd></div>` : "") +
-  C.links.map((l) => `<div class="contact-row"><dt>${esc(l.label)}</dt><dd class="val">${l.url
+  C.links.filter((l) => ready(l.text)).map((l) => `<div class="contact-row"><dt>${esc(l.label)}</dt><dd class="val">${l.url
     ? `<a href="${esc(l.url)}" target="_blank" rel="noopener">${t(l.text)}</a>` : t(l.text)}${chip(l.draft)}</dd><dd></dd></div>`).join("");
 
 const holes = (JSON.stringify(CV).match(/\{\{.+?\}\}/g) || []).length;
 const checks = CV.checks || [];
 const anyDraft = holes || checks.length || CV.facts.some((f) => f.draft) || CV.stages.some((s) => s.draft)
   || CV.work.some((w) => w.draft) || C.emailDraft || C.links.some((l) => l.draft);
-if (anyDraft) {
+if (anyDraft && !PUBLIC) {
   $("#draft-note").innerHTML = `<b>Draft.</b> ${holes} highlighted field${holes === 1 ? "" : "s"} and ${checks.length} check${checks.length === 1 ? "" : "s"} left. `
     + checks.map(esc).join(" ") + " Edit them in the <b>CV</b> object at the top of the script.";
 }
-$("#draft-note").hidden = !anyDraft;
+$("#draft-note").hidden = !anyDraft || PUBLIC;
 
 $("#copy-email").addEventListener("click", async (e) => {
   const btn = e.currentTarget;
