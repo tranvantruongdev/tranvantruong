@@ -9,12 +9,12 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%23fff' stroke='%23C21F29' stroke-width='2'/%3E%3Cg fill='%23C21F29'%3E%3Ccircle cx='11' cy='10' r='2.4'/%3E%3Ccircle cx='21' cy='10' r='2.4'/%3E%3Ccircle cx='16' cy='16' r='2.4'/%3E%3Ccircle cx='11' cy='22' r='2.4'/%3E%3Ccircle cx='21' cy='22' r='2.4'/%3E%3C/g%3E%3C/svg%3E">
 <meta property="og:type" content="profile">
 <meta property="og:url" content="https://tranvantruong.pages.dev/">
-<meta property="og:title" content="Tran Van Truong · Unity Game Client Developer">
+<meta property="og:title" content="Tran Van Truong · Unity Game Developer">
 <meta property="og:description" content="5+ years of Unity game-client work and three launched titles at Enish, including Yowamushi Pedal Resonance Pedaism (2026). A CV you can ride.">
 <meta property="og:image" content="https://tranvantruong.pages.dev/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Trần Văn Trường, Unity game client developer, with three launched titles">
+<meta property="og:image:alt" content="Trần Văn Trường, Unity game developer, with three launched titles">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">
 {
@@ -27,7 +27,7 @@
   "worksFor": { "@type": "Organization", "name": "Enish Vietnam" },
   "address": { "@type": "PostalAddress", "addressLocality": "Ho Chi Minh City", "addressCountry": "VN" },
   "alumniOf": { "@type": "CollegeOrUniversity", "name": "Posts and Telecommunications Institute of Technology" },
-  "knowsAbout": ["Unity", "C#", "UGUI", "UniRx", "gRPC", "Protobuf", "Spine"],
+  "knowsAbout": ["Unity", "C#", "UGUI", "UniRx", "gRPC", "Protobuf", "Spine", "Go"],
   "sameAs": ["https://github.com/tranvantruongdev"]
 }
 </script>
@@ -551,14 +551,14 @@ const CV = {
   // Same content as pdf/build_cv_v4.py — change both together.
   mentionAiSystem: false,  // the agent system built at work; set true once Enish confirms it's fine to mention
   checks: [],              // things that must be resolved before a push (the push guard blocks while any remain)
-  eyebrow: "Unity game client developer · C# · 5+ years",
-  summary: "I'm a Unity client developer with 5+ years and three launched titles at Japanese mobile-game publisher Enish, including the July 2026 launch of Yowamushi Pedal Resonance Pedaism, a licensed anime title with 250K+ pre-registrations. I took ownership of Battle Content mid-project and built the gacha result presentation, both live at launch",
+  eyebrow: "Unity game developer · C# · 5+ years",
+  summary: "I'm a Unity game developer with 5+ years of client work and three launched titles at Japanese mobile-game publisher Enish, including the July 2026 launch of Yowamushi Pedal Resonance Pedaism, a licensed anime title with 250K+ pre-registrations. I took ownership of Battle Content mid-project and built the gacha result presentation, both live at launch, and since Sep 2026 I've also worked on the title's Go game server",
   summaryAi: ". I also build AI-agent tooling for bug investigation",
   rideHint: "Each climb below is one stage of that career. Ride it with the arrow keys, or press Auto-ride.",
   facts: [
     { k: "Team", v: "Enish Vietnam" },
     { k: "Based in", v: "Ho Chi Minh City" },
-    { k: "Experience", v: "5+ years, game client" },
+    { k: "Experience", v: "5+ years Unity client · Go server since Sep 2026" },
     { k: "Recent output", v: "238 merged PRs, Jan–May 2026" },
     { k: "Languages", v: "Vietnamese (native) · English ({{level}}) · Japanese ({{JLPT level, or remove}})" },
   ],
@@ -600,23 +600,25 @@ const CV = {
         { ai: "Built an AI agent system (Claude Agent SDK, Node.js, Slack) that investigates bug tickets across the Unity client and Go server, then hands fixes to a coding agent that can push only after human approval; ~190 commits in 7 weeks." },
         "{{Seniority, only if true: reviewed teammates' PRs / mentored N developers / led feature X}}",
       ],
-      tags: ["238 merged PRs, Jan–May 2026", "gRPC · Protobuf", "Three launched titles"],
+      tags: ["238 merged PRs, Jan–May 2026", "gRPC · Protobuf", "Go server since Sep 2026", "Three launched titles"],
     },
   ],
   kit: [
     { group: "Unity & C#", items: ["Unity", "C#", "UGUI", "TextMeshPro", "UniRx", "MVC", "State Machine", "Spine", "FinalIK"] },
     { group: "Integration", items: ["gRPC", "Protobuf", "Master-data binding", "API-driven UI"] },
+    { group: "Server", items: ["Go", "Docker"], note: "Game server work since Sep 2026." },
     { group: "Delivery", items: ["Git/GitHub", "Jenkins", "WebGL builds"] },
     { group: "AI tooling", items: [{ ai: "Claude Agent SDK" }, { ai: "Node.js" }, "Claude Code", "Cursor", "Codex"] },
   ],
   work: [
     {
       title: "Yowamushi Pedal Resonance Pedaism", meta: "Enish[[ · {{start month}} – present]]",
-      role: "Battle Content (owner for about a year), gacha result presentation, PvP/GvG integration",
+      role: "Battle Content (owner for about a year), gacha result presentation, PvP/GvG integration, Go server (since Sep 2026)",
       points: [
         "Owned Battle Content for about a year after taking it over mid-project from a short handover; shipped race lists, race-detail dialogs and match-state logic for the Jul 2026 launch.",
         "Built the gacha result presentation (Spine effects, voice/BGM timing, skip behavior), the core paid moment of the game[[; {{N}} banners shipped since launch]].",
         "Integrated Battle Content and PvP/GvG APIs, season states and rewards over gRPC/Protobuf and master data; fixed resume recovery and UI issues after protocol changes.",
+        "Moved into server-side work on the title's Go game server in Sep 2026[[, {{what you built on the server}}]].",
       ],
       url: "https://www.enish.jp/news/2026/30166", linkText: "Release announcement",
     },
