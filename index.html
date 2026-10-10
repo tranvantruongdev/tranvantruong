@@ -383,6 +383,16 @@ mark.ph { padding: 0 3px; border-radius: 2px; background: var(--ph-bg); color: v
   vertical-align: 2px;
 }
 .work-link a { font: 500 13px var(--f-mono); letter-spacing: .04em; text-underline-offset: 3px; text-decoration-color: var(--kom); }
+.work-link a + a { margin-left: 14px; }
+.work-item.has-preview { display: grid; grid-template-columns: minmax(108px, 26%) minmax(0, 1fr); gap: 0 16px; align-items: start; }
+.work-preview { grid-column: 1; grid-row: 1; width: 100%; aspect-ratio: 3 / 2; margin: 5px 0 0; overflow: hidden; border: 1px solid var(--line); background: var(--surface); }
+.work-preview img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.work-main { min-width: 0; grid-column: 2; }
+@media (max-width: 600px) {
+  .work-item.has-preview { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .work-preview { grid-column: 1; grid-row: auto; max-width: 320px; }
+  .work-main { grid-column: 1; }
+}
 
 /* finish */
 .finish { margin-top: 80px; background: var(--ink); color: var(--bg); }
@@ -447,7 +457,8 @@ mark.ph { padding: 0 3px; border-radius: 2px; background: var(--ph-bg); color: v
       <h1 id="hero-name"></h1>
       <p class="lead" id="hero-lead"></p>
       <div class="actions">
-        <button class="btn btn-primary" id="hero-auto" type="button">Auto-ride the route ▸</button>
+        <a class="btn btn-primary" href="#work">Selected work ↓</a>
+        <button class="btn" id="hero-auto" type="button">Auto-ride the route ▸</button>
         <a class="btn" href="#roadbook">Read the roadbook</a>
       </div>
     </div>
@@ -635,28 +646,43 @@ const CV = {
       points: ["Developed gameplay and event systems from launch onward, using MVC and State Machine patterns."],
     },
     {
-      title: "Cadence Club", meta: "Personal project · Unity 6 · 2026",
+      title: "Cadence Club", meta: "Personal project · Unity 6 · 2026 · feature complete · release pending",
       role: "Solo, AI-assisted with Claude Code",
+      preview: { src: "media/cadence-club.jpg", alt: "A Cadence Club match-3 board with rider powers ready" },
       points: [
-        "A Royal Match-style match-3: the board is pure C# that emits events, and the view replays them. 30 levels, each tuned by a bot that plays it 200 times.",
+        "A Royal Match-style match-3: the pure-C# board emits events for the Unity view to replay. 30 levels tuned with 200 bot simulations each.",
       ],
-      url: "https://github.com/tranvantruongdev/cadence-club/blob/main/docs/case-study.md", linkText: "Case study and source",
+      links: [
+        { url: "https://github.com/tranvantruongdev/cadence-club/blob/main/docs/case-study.md", text: "Case study" },
+        { url: "https://github.com/tranvantruongdev/cadence-club/blob/main/docs/cadence-club-trailer.mp4", text: "Trailer" },
+        { url: "https://github.com/tranvantruongdev/cadence-club", text: "Source" },
+      ],
     },
     {
-      title: "Night Courier", meta: "Personal project · Unity 6 · 2026 · Android and Windows",
+      title: "Night Courier", meta: "Personal project · Unity 6 · 2026 · feature complete · release pending",
       role: "Solo: design, code and tuning, AI-assisted with Claude Code",
+      preview: { src: "media/night-courier.jpg", alt: "The Night Courier bike dodging drones on a city street" },
       points: [
-        "A Survivor.io-style night ride where the bike never stops: speed sets your damage and your dodge, and drafting behind an elite drone gives a burst.",
-        "Built a pure-C# swarm simulation using parallel arrays and a hashed spatial grid, with allocation regression tests covering 100, 300 and 500 drones.",
-        "Tuned with an autopilot bot over hundreds of seeded shifts. 2 maps, 2 bosses, 6 weapons with evolutions, in English, Vietnamese and Japanese.",
+        "A momentum-driven survivor game built around speed, damage and drafting behind elite drones.",
+        "Built a pure-C# swarm simulation with parallel arrays and a hashed spatial grid; allocation regression tests cover 100, 300 and 500 drones.",
+        "Tuned with an autopilot across seeded shifts: 2 maps, 2 bosses and 6 weapons with evolutions.",
       ],
-      url: "https://github.com/tranvantruongdev/night-courier/blob/main/docs/case-study.md", linkText: "Case study and source",
+      links: [
+        { url: "https://github.com/tranvantruongdev/night-courier/blob/main/docs/case-study.md", text: "Case study" },
+        { url: "https://github.com/tranvantruongdev/night-courier/blob/main/docs/night-courier-trailer.mp4", text: "Trailer" },
+        { url: "https://github.com/tranvantruongdev/night-courier", text: "Source" },
+      ],
     },
     {
-      title: "Tailwind", meta: "Personal project · Unity 6 · 2026",
+      title: "Tailwind", meta: "Personal project · Unity 6 · 2026 · v0.1.0 preview release",
       role: "Solo, AI-assisted with Claude Code",
+      preview: { src: "media/tailwind.jpg", alt: "A paper glider riding a wind stream between rooftops" },
       points: ["A Flappy Bird-style game with a drafting twist: ride wind streams to glide faster and build a combo."],
-      url: "https://github.com/tranvantruongdev/tailwind", linkText: "Source and Android build",
+      links: [
+        { url: "https://github.com/tranvantruongdev/tailwind/releases/tag/v0.1.0", text: "Play / download v0.1.0" },
+        { url: "https://github.com/tranvantruongdev/tailwind/blob/main/docs/tailwind.gif", text: "Gameplay" },
+        { url: "https://github.com/tranvantruongdev/tailwind", text: "Source" },
+      ],
     },
   ],
   finish: {
@@ -668,6 +694,7 @@ const CV = {
     phone: "",   // add a number here to show it; left out by default because this page is public
     links: [
       { label: "GitHub", url: "https://github.com/tranvantruongdev", text: "github.com/tranvantruongdev" },
+      { label: "CV (PDF)", url: "TranVanTruong_Unity_Game_Developer_v5_public.pdf", text: "Download the one-page CV", download: true },
     ],
   },
 };
@@ -777,15 +804,21 @@ $("#kit-list").innerHTML = CV.kit.map((g) => `
     ${g.note ? `<p class="kit-note">${esc(g.note)}</p>` : ""}
   </dd></div>`).join("");
 
-$("#work-list").innerHTML = CV.work.map((w) => `
-  <li class="work-item${w.draft ? " is-draft" : ""}">
-    <p class="work-meta">${t(w.meta)}</p>
-    <h3>${t(w.title)}${chip(w.draft)}</h3>
-    ${w.role ? `<p class="work-role"><span>My role</span>${t(w.role)}</p>` : ""}
-    ${w.desc ? `<p>${t(w.desc)}</p>` : ""}
-    ${pointList(w.points)}
-    ${w.url ? `<p class="work-link"><a href="${esc(w.url)}" target="_blank" rel="noopener">${esc(w.linkText || "Visit")} ↗</a></p>` : ""}
-  </li>`).join("");
+$("#work-list").innerHTML = CV.work.map((w) => {
+  const links = (w.links || (w.url ? [{ url: w.url, text: w.linkText || "Visit" }] : [])).filter((l) => ready(l.text));
+  return `
+  <li class="work-item${w.draft ? " is-draft" : ""}${w.preview ? " has-preview" : ""}">
+    ${w.preview ? `<figure class="work-preview"><img src="${esc(w.preview.src)}" alt="${esc(w.preview.alt)}" width="640" height="426" loading="lazy" decoding="async"></figure>` : ""}
+    <div class="work-main">
+      <p class="work-meta">${t(w.meta)}</p>
+      <h3>${t(w.title)}${chip(w.draft)}</h3>
+      ${w.role ? `<p class="work-role"><span>My role</span>${t(w.role)}</p>` : ""}
+      ${w.desc ? `<p>${t(w.desc)}</p>` : ""}
+      ${pointList(w.points)}
+      ${links.length ? `<p class="work-link">${links.map((l) => `<a href="${esc(l.url)}" target="_blank" rel="noopener">${t(l.text)} ↗</a>`).join("")}</p>` : ""}
+    </div>
+  </li>`;
+}).join("");
 
 $("#finish-title").textContent = CV.finish.title;
 $("#finish-text").textContent = CV.finish.text;
@@ -794,7 +827,7 @@ $("#contact-list").innerHTML =
   `<div class="contact-row"><dt>Email</dt><dd class="val"><a id="email-val" href="mailto:${esc(C.email)}">${esc(C.email)}</a>${chip(C.emailDraft)}</dd><dd><button class="copy" id="copy-email" type="button">Copy</button></dd></div>` +
   (C.phone ? `<div class="contact-row"><dt>Phone</dt><dd class="val">${esc(C.phone)}</dd><dd></dd></div>` : "") +
   C.links.filter((l) => ready(l.text)).map((l) => `<div class="contact-row"><dt>${esc(l.label)}</dt><dd class="val">${l.url
-    ? `<a href="${esc(l.url)}" target="_blank" rel="noopener">${t(l.text)}</a>` : t(l.text)}${chip(l.draft)}</dd><dd></dd></div>`).join("");
+    ? `<a href="${esc(l.url)}" ${l.download ? "download" : `target="_blank" rel="noopener"`}>${t(l.text)}</a>` : t(l.text)}${chip(l.draft)}</dd><dd></dd></div>`).join("");
 
 const holes = (JSON.stringify(CV).match(/\{\{.+?\}\}/g) || []).length;
 const checks = CV.checks || [];
